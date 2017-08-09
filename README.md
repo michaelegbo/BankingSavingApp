@@ -1,5 +1,17 @@
-# Create Windows 8 Metro-like tiles with Bootstrap and AngularJS
+#Angular-SavingsApp
 
-Here is a simple AngularJS directive which, will allow you to create tiles together with Bootstrap.
+#Create Windows 8 Metro-like Savings APP tiles with Bootstrap and AngularJS
 
-read more on my blog: http://peter.grman.at/create-windows-8-metro-like-tiles-with-bootstrap-and-angularjs/
+  Here is a simple AngularJS directive which, will allow you to create tiles together with Bootstrap
+
+
+
+# By Michael Egbo
+
+#Features
+
+#View Funds for savings
+
+#Buy more funds
+
+#See 30 days performance
