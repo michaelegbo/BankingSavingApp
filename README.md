@@ -18,11 +18,11 @@
 
 #See 30 days performance
 
-# Top up Funds
+#Top up Funds
 
-# Redeem Funds
+#Redeem Funds
 
-Installation
+# Installation
 
 Simply clone the repo.
 
