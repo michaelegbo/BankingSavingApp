@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Stanbic</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdbcompiled.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      
+ 
+
+
+
+
+    <style>
+        .view {
+            background: url("bb3.jpg")no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        
+        .img-shield {
+            width: 30%;
+            margin-bottom: 15%;
+            margin-left: 37%;
+          
+        }
+        
+        .zcard {
+            background: transparent;
+            border: none;
+           
+        }
+        
+        /*@media screen and (max-width:500px) {
+            .zcard {
+                background: transparent;
+                border: none;
+                width: 130%;
+            }
+            .img-shield {
+                width: 50%;
+                margin-bottom: 15%;
+                margin-left: 35%;
+            }
+            .md-form {
+                margin-left: 1%;
+            }
+        }
+        
+        @media screen and (max-width:800px) and (min-width:700px) {
+            .zcard {
+                background: transparent;
+                border: none;
+                width: 200%;
+            }
+            .img-shield {
+                width: 50%;
+                margin-bottom: 15%;
+                margin-left: 85%;
+            }
+            .md-form {
+                margin-left: 10%;
+            }
+            .text-center {
+                margin-left: 10%;
+            }
+        }
+        
+        @media screen and (max-width:400px) {
+            .zcard {
+                background: transparent;
+                border: none;
+                width: 120%;
+            }
+            .img-shield {
+                width: 50%;
+                margin-bottom: 15%;
+                margin-left: 35%;
+            }
+            .md-form {
+                margin-left: 1%;
+            }
+        }
+        
+        @media screen and (max-width:320px) {
+            .zcard {
+                background: transparent;
+                border: none;
+                width: 110%;
+            }
+            .img-shield {
+                width: 50%;
+                margin-bottom: 15%;
+                margin-left: 35%;
+            }
+            .md-form {
+                margin-left: -5%;
+            }
+        }*/
+
+        .cls2{
+
+background: url("bb3.jpg")no-repeat center center fixed;
+
+        }
+
+        /*@-moz-document url-prefix() { 
+                .zcard {
+            background: transparent;
+            border: none;
+            width: 100%;
+        }
+
+           .img-shield {
+            width: 30%;
+            margin-bottom: 15%;
+            margin-left: 30%;
+          
+        }
+}*/
+    </style>
+</head>
+
+<body class="view hm-black-strong" ng-app="app" ng-controller="fCtrl">
+    <!--Navbar-->
+    <!--<nav  class="navbar navbar-toggleable-md navbar-dark scrolling-navbar fixed-top">
+      <div class="container"> <button class="navbar-toggler navbar-toggler-right"
+
+          type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1"
+
+          aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+        </button> <a  class="navbar-brand" href="#"> <img style="max-width: 200%; max-height: 150%;"
+
+            src="shield.png"
+
+            class="d-inline-block align-top z-depth-0" alt="MDBootstrap"> </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+          <!--Links-->
+    <!--<ul class="navbar-nav mr-auto">
+            <li class="nav-item active"> <a class="nav-link" href="#home">Home
+                <span class="sr-only">(current)</span></a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#best-features">Features</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="#examples-of-use">Examples</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="#pricing">Pricing</a>
+            </li>
+            <li class="nav-item"> <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>-->
+    <!--/.Navbar-->
+    <!--Mask-->
+    <div >
+        <!--First column-->
+        <!--<div class="container-fluid">
+            <div class="row">
+                <div class="col-md-04">
+          <button href="" class="btn btn-indigo button " style=" "><b>Change Background</b></button>
+                </div>
+            </div>
+        </div>-->
+        <!--Naked Form-->
+        <div class="container" style="border:none;">
+            <div class="row" style="margin-top:15%; ">
+                <!--<div class="row">
+                    <div class=""
+                
+                 </div>-->
+                <div class="col-sm-6 col-sm-offset-3">
+                    <img src="shield.png" class="img-shield">
+                    <!--Form with header-->
+                    <div class=" zcard" style="">
+                         <div class="text-center " style="margin-bottom: 10%; color:white;">
+                                <h2><b> My Mutual Funds </b></h2>
+                            </div>
+                        <div class="card-block" style="color:white; border: none;" id="show">
+                            <!--<div class="form-header blue-gradient">-->
+                           
+                            <!--Header-->
+                            <!--Body-->
+                            <!--<p>fill in the details below </p>
+    <br>-->
+                            <!--Body-->
+                            <div class="md-form" >
+                                <i class="fa fa-user prefix"></i>
+                                <input type="text" id="form3" class="form-control" style="color: white;">
+                                <label style="color: white; font-size:90%;" for="form3">Email</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="form4" class="form-control" style="color: white;">
+                                <label style="color: white; font-size:90%;" for="form4">Password</label>
+                            </div>
+                            <div class="md-form">
+                                <i class="fa fa-phone prefix"></i>
+                                <input type="password" id="form5" class="form-control" style="color: white;">
+                                <label style="color: white; font-size:90%;" for="form5">Last four digits of phone number</label>
+                            </div>
+                                 <div class="text-center" style="margin-left: 10%;">
+                                <!--<button ng-click="toggle()" class="btn btn-default">Submit</button>-->
+                                <a  class="btn btn-indigo" style="width: 70%; margin-top: 10%;" id="login"><b>Submit</b></a>
+                                <div class="call">
+                                    <br> Forgot password?
+                                    <!--<p ng-show="myVar">
+                <br> {{url}}</p>-->
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="card-block" style="display: none; color:white;" id="hide">
+                        
+                         
+                         <div class="md-form">
+                     
+                                <i class="fa fa-lock prefix"></i>
+                                <input type="password" id="OTP" class="form-control" style="color: white;">
+                                <label for="OTP">OTP</label>
+                            <div class="text-center" style="margin-left: 10%;">
+                                
+                                <a href="metro.html"  class="btn btn-indigo" style="width: 70%; margin-top: 10%;" id="login"><b>Login</b></a>
+                            </div>
+                            </div>
+                    </div>
+
+                    <script>
+                    $(document).ready(function(){
+           $("#login").click(function(){
+               $("#show").hide();
+               $("#hide").show();
+             });
+           //done dida
+                });
+                    </script>
+                    </div>
+
+                </div>
+            </div>
+            <!--Naked Form-->
+            <!--/.Form-->
+
+           
+        </div>
+        <!--/.Mask-->
+        <!-- SCRIPTS -->
+        <!-- JQuery -->
+        <!--<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>-->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="js/tether.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="js/mdbcompiled.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+        <script>
+            var app = angular.module('app', []);
+
+            app.controller('fCtrl', function ($scope) {
+                $scope.url = "https://stanbicibtc.com/user?a2229393099";
+                $scope.myVar = false;
+                $scope.toggle = function () {
+                    $scope.myVar = !$scope.myVar;
+                };
+
+
+            });
+
+
+        
+
+        </script>
+  
+<script >
+
+    var colors = ["#3b609b", "#9b3b3b", "#3b9b81", "#7da5a4"];
+$(".button").click(function() {
+
+//    $("body").css("background", "");
+ $("body").removeClass('view')
+})
+
+$(".button").click(function() {
+  var rand = Math.floor(Math.random() * colors.length);
+  
+  $("body").css("background-color", colors[rand]);
+})
+
+//
+
+$('.button').click(function(e){
+    e.preventDefault();
+    $("body").toggleClass('cls2')
+});
+
+</script>
+</body>
+
+</html>

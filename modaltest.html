@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <style type="text/css">
+
+    </style>
+    <title></title>
+    <script type='text/javascript'>
+        //<![CDATA[
+
+        var app = angular.module('app', ['ui.bootstrap']);
+
+        app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, customer) {
+            $scope.customer = customer;
+
+        });
+
+        app.controller('CustomerController', function ($scope, $timeout, $modal, $log) {
+
+             $scope.data = [{
+            name: "Money Market Fund ",
+            Number: 1,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg",
+            modalheader: "Terms and conditions"
+        },
+        {
+            name: "Balance Fund",
+            Number: 2,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg",
+            modalheader: "Terms and conditioning"
+        },
+        {
+            name: "Bond Fund",
+            Number: 3,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg"
+        },
+        {
+            name: "Imaan Fund",
+            Number: 4,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg"
+        },
+        {
+            name: "Dollar Fund",
+            Number: 5,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg"
+        },
+         {
+            name: "Nigerian equity Fund",
+            Number: 6,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg"
+        },
+         {
+            name: "Ethical Fund",
+            Number: 7,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg"
+        },
+         {
+            name: "Guaranteed investment fund",
+            Number: 8,
+            description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit,sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.",
+            img: "mutual.jpg"
+        }
+         
+
+        
+    ];
+
+            $scope.customers = [{
+                    name: 'Ricky',
+                    details: 'Some Details for Ricky',
+                },
+                {
+                    name: 'Dicky',
+                    details: 'Some Dicky Details',
+                },
+                {
+                    name: 'Nicky',
+                    details: 'Some Nicky Details',
+                }
+            ];
+
+            // MODAL WINDOW
+            $scope.open = function (_customer) {
+
+                var modalInstance = $modal.open({
+                    controller: "ModalInstanceCtrl",
+                    templateUrl: 'myModalContent.html',
+                    resolve: {
+                        customer: function () {
+                            return _customer;
+                        }
+                    }
+                });
+
+            };
+
+        });
+
+
+        //]]>
+    </script>
+</head>
+
+<body ng-app="app">
+    <div >
+        <div ng-controller="CustomerController">
+            <div ng-repeat="customer in data">
+                <!--<button class="btn btn-default" ng-click="open(customer)">{{ customer.name }}</button> <br />-->
+                <!--MODAL WINDOW-->
+                <script type="text/ng-template" id="myModalContent.html">
+                    <div class="modal-header">
+                        <h3>The Customer Name is: {{ customer.name }}</h3>
+                    </div>
+                    <div class="modal-body">
+                        This is where the Customer Details Goes<br /> {{ customer.description }}
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" ng-controller="CustomerController">
+    <div class="well well-sm" id="wells">
+        <strong style="color: black;">Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+        <div class="item  col-xs-4 col-lg-4" ng-repeat="customer in data">
+            <div class="thumbnail">
+                <img class="group list-group-image" ng-src="{{customer.img}}" alt="" />
+                <div class="caption" >
+                  <h4 class="group inner list-group-item-heading">
+                         <strong>   {{customer.name}}</strong></h4>
+                    <p class="group inner list-group-item-text">
+                       {{customer.description}}</p>
+                    <div class="row">
+                       
+                        <div class="col-xs-12 col-md-6 col-md-offset-6">
+                            <a class="btn btn-primary"  style="width: 100%;" ng-click="open(customer)" > Buy</a>
+                        </div>
+
+
+
+ 
+
+                    </div>
+                </div>
+            </div>
+
+
+
+  </div>
+
+   
+    </div>
+
+
+    
+</div>
+   
+</body>
+
+</html>

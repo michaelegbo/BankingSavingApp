@@ -1,0 +1,288 @@
+.money1{
+
+
+display: none; color:black; max-width:100%; height:150px; background: rgba(73,155,234,1);
+background: -moz-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(32,124,229,1)));
+background: -webkit-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -o-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -ms-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: linear-gradient(to right, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=1 ); 
+
+}
+
+.money2{
+
+background: rgba(73,155,234,1);
+background: -moz-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(73,155,234,1)), color-stop(100%, rgba(32,124,229,1)));
+background: -webkit-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -o-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: -ms-linear-gradient(left, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+background: linear-gradient(to right, rgba(73,155,234,1) 0%, rgba(32,124,229,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=1 ); margin-top:-0.1%; padding-top:-3%; color:white;
+
+}
+
+
+
+.modal-title, .modal-body, .modal-footer {
+    color: Black;
+}
+
+
+  .big-box,
+.mini-box {
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  margin: 2px;
+  font-size: 1.5em;
+}
+
+
+
+.big-box {
+  height: 505px;
+  background: blue;
+  -webkit-box-shadow: -6px 14px 39px -6px rgba(0,0,0,0.63);
+-moz-box-shadow: -6px 14px 39px -6px rgba(0,0,0,0.63);
+box-shadow: -6px 14px 39px -6px rgba(0,0,0,0.63);
+}
+
+.mini-box {
+  height: auto;
+
+}
+
+
+@media screen and (max-width:500px){
+
+.big-box {
+  height: 250px;
+}
+
+}
+
+.round{
+border-radius: 10px;
+
+}
+body{
+
+background: url("bb4.jpg")no-repeat center center fixed;
+
+}
+
+
+  .view {
+            background: url("bb3.jpg")no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+       .cls2{
+
+background: url("bb4.jpg") ;
+background-repeat: repeat;
+background-size: cover;
+
+  }
+
+
+#logout1 {
+
+  color: white;
+
+}
+
+#logout1:hover{
+
+color:black;
+
+}
+
+
+
+
+.large {
+  width: 600px;
+  font-size: 16px;
+}
+
+.position{
+
+    background-color: #2ea6db;
+}
+
+    @media screen and (max-width:800px){
+    .res{
+
+margin-left:7%;
+
+}
+
+.position{
+
+    background-color: #2ea6db;
+}
+
+
+}
+
+@media only screen and (max-width: 880px) and (min-width:600px) {
+
+   .font1 { font-size: 0.8em; }
+
+}
+
+@media only screen and (max-width: 600px)  {
+
+   .font1 { font-size: 1em; }
+
+}
+
+@media only screen and (max-width: 400px)  {
+
+   .font1 { font-size: 0.7em; }
+
+}
+
+.grow { transition: all .5s ease-in-out; }
+.grow:hover { transform: scale(1.05); }
+
+.mini-box:hover{
+
+  cursor: pointer;
+}
+
+#show{
+
+display: none;
+
+}
+
+.paddings{
+
+padding-top:30%;
+font-size: 1em;
+
+}
+
+.margins{
+
+font-size: 0.8em; margin-top:40%;
+
+}
+
+.id{
+
+position: absolute; color: white; opacity: 0.5; z-index:2222; margin-left:32%;
+
+}
+
+.set{
+
+font-size: 0.8em;
+
+}
+
+@media screen and (max-width:430px){
+.paddings{
+
+padding-top:5%;
+
+}
+
+.margins{
+
+font-size: 0.8em; margin-top:10%;
+
+}
+
+
+
+.big-box{
+
+font-size: 1em;
+
+}
+
+
+.id{
+
+position: absolute; color: white; opacity: 1; z-index:2222; margin-left:32%; font-size: 2em;
+
+}
+
+.dis{display: none;}
+
+
+}
+
+
+/* The CSS */
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: transparent;
+    color:white;
+    border:none;
+ 
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+}
+
+/* Targetting Webkit browsers only. FF will show the dropdown arrow with so much padding. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    select {padding-right:18px}
+}
+options{
+
+color:black;
+
+}
+
+option{
+
+color:black;
+
+}
+
+label {position:relative}
+label:after {
+    content:'<>';
+    font:11px "Consolas", monospace;
+    color:white;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:8px; top:2px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+label:before {
+    content:'';
+    right:6px; top:0px;
+    /*width:20px; height:20px;*/
+    background:#f8f8f8;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}

@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Funds Manager</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel='stylesheet prefetch' href='https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular.min.js"></script>-->
+  <script src="./select.js"></script>
+  <link rel="stylesheet" href="./select.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+  <script src="script1.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="content.css">
+  <link rel="stylesheet" href="styler2.css">
+  <link rel="stylesheet" href="css/style3.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+  <style>
+  
+
+ 
+  </style>
+</head>
+
+<body ng-app="app" style="     
+    
+    "
+    
+    >
+  <div class="row ">
+
+
+
+
+
+    <div class="container-fluid">
+      <nav class=" col-sm-10 col-sm-offset-1 navbar navbar-inverse position ">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#" style="color: white;">Home</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" style="color: white;">Investment
+        <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Page 1-1</a></li>
+                  <li><a href="#">Page 1-2</a></li>
+                  <li><a href="#">Page 1-3</a></li>
+                </ul>
+              </li>
+              <li><a href="#" style="color: white;">Products & services</a></li>
+              <li><a href="#" style="color: white;">Other request</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right ">
+              <li><a href="index.html" id="logout1">logout</a></li>
+            </ul>
+            <div class="dropdown navbar-header navbar-right ">
+              <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>-->
+              <a class="btn  dropdown-toggle navbar-brand" type="button" data-toggle="dropdown" href="#"><i style="color: white; " class="fa fa-cog" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myModal2">Change password</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Modal for password-->
+      <div class="modal fade" id="myModal2" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content ">
+            <div class="modal-header" style="background: rgba(73,155,234,1);">
+              <button type="button" class="close" style="color: white;" data-dismiss="modal">&times;</button>
+              <h2 class="text-center money2 " style="background: rgba(73,155,234,1);"><b> <i class="fa fa-pencil" aria-hidden="true"></i>Fill in the details below</b></h2>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label class="label2" style="" for="password">Current Password</label>
+                <input type="text" class="form-control" id="password" placeholder="Current password">
+              </div>
+              <div class="form-group">
+                <label class="label2" style="" for="password1">New Password</label>
+                <input type="text" class="form-control" id="password1" placeholder="Current password">
+              </div>
+              <div class="form-group">
+                <label class="label2" style="" for="password2">Repeat New Password</label>
+                <input type="text" class="form-control" id="password2" placeholder="Current password">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container hidden-sm">
+    <div class="row" style="color: white;">
+      <div class="col-sm-2"><strong> <h1> My Funds</h1></strong></div>
+      <!--<div class="col-sm-3" style="border-radius: 10px; height: 100px; color: black; background: white;">
+        <div class="container-fluid" style="color: black;">
+          <div class="row">
+            <div class="col-xs-4" style=" margin-top:10%;  opacity: 1; margin-left:-10%;"><i class="fa fa-trophy fa-5x" style="color: darkgoldenrod; opacity: 0.5;" aria-hidden="true"></i></div>
+            <div class=" col-xs-4" style="  margin-left:-6%; MARGIN-RIGHT:5%; opacity: 0.5; background: darkgoldenrod;; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; ">
+            <i class="fa fa-trophy  " style="margin-top:70%; width: 100%; font-size:340%; color: white;" aria-hidden="true"></i></div>
+            <div class="col-xs-6 col-xs-offset-2" style="margin-top:10%; font-size: 18px; font-weight: bold"> 2 <br> Total accounts </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="col-sm-3 col-xs-offset-1 col-xs-11 hidden-xs  " style="margin-left:2.3%;  border-radius: 10px; height: 100px; background: white; color: black;">
+        <div class="col-xs-3" style="  margin-left:-6%; MARGIN-RIGHT:5%; opacity: 0.5; background: blue; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; ">
+          <i class="fa fa-users  " style="margin-top:70%; width: 100%; font-size:300%; color: white;" aria-hidden="true"></i></div>
+        <div class=" col-xs-9">
+          <div class="text-center" style="font-weight: bold;   margin-top:15%; color: blue;">
+            <h5>Total accounts</h5>
+          </div> <br>
+          <div class="text-center" style="font-weight: bold; margin-top:-12%; margin-left:-10%; font-size: 1.2em   "> 10</div>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-offset-1 col-xs-11 hidden-xs" style="margin-left:2.3%;  border-radius: 10px; height: 100px; background: white; color: black;">
+        <div class=" col-xs-3" style="  margin-left:-6%; MARGIN-RIGHT:5%; opacity: 0.5; background: purple; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; ">
+          <i class="fa fa-lightbulb-o " style="margin-top:70%; width: 100%; font-size:340%; color: white;" aria-hidden="true"></i></div>
+        <div class=" col-xs-9">
+          <div class="text-center" style="font-weight: bold;   margin-top:15%; color: purple;">
+            <h5>Total Investments (N)</h5>
+          </div> <br>
+          <div class="text-center" style="font-weight: bold; margin-top:-12%; margin-left:-10%; font-size: 1.2em   "> 500,000,000</div>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-offset-1 col-xs-10 hidden-xs " style=" margin-left:2.3%; border-radius: 10px; height: 100px; background: white; color: black;">
+        <div class=" col-xs-3" style="  margin-left:-6%; MARGIN-RIGHT:5%; opacity: 0.5; background: green; height: 100%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; ">
+          <i class="fa fa-lightbulb-o " style="margin-top:70%; width: 100%; font-size:340%; color: white;" aria-hidden="true"></i></div>
+        <div class=" col-xs-9">
+          <div class="text-center" style="font-weight: bold; color: green;  margin-top:15%; ">
+            <h5>Total Investments ($)</h5>
+          </div> <br>
+          <div class="text-center" style="font-weight: bold; margin-top:-12%; margin-left:-10%; font-size: 1.2em   "> 500,000,000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+  </div>
+
+
+
+  <div class="container" style="margin-top:1%;" id="main" ng-controller="CustomerController2">
+    <div class="row">
+
+
+<!--Modal for 30 days Performance-->
+
+  <div class="modal fade" id="modChart" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: darkblue; color: white;">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                       30 days Performance for: {{selectedItem.fundName}}
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="canvas" width="508" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--Modal for 30 days Performance-->
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="container money1" id="hiddddde" style="display: block; margin-top:20%;">
+            <div class="modal-header">
+              <h2 class="text-center money2 " id="header-modal"><b> <i class="fa fa-pencil" aria-hidden="true"></i> Terms & Conditions</b></h2>
+              <h2 class="text-center money2 " style="display: none;" id="header-modal2"><b> <i class="fa fa-pencil" aria-hidden="true"></i> Enter Amount</b></h2>
+            </div>
+            <div class="row" style="background:white; padding-top:6%;">
+              <div class="col-sm-12 ">
+
+
+       <!--Change area for topup       -->
+       <div id="disclaimer" style="height: 400px; ">
+
+  <div style="max-height: 100%; overflow-y: auto;" >
+          <div class="item active">
+            <div style="color:black; background-color:transparent; ">
+              <h3>Disclaimer</h3>
+              {{ data[0].Disclaimer}}
+            </div>
+          </div>
+          <div class="item ">
+            <div style="color:black; background-color:transparent; ">
+              <h3>One Time Access Code</h3>
+              {{ data[0].oneTime}}
+            </div>
+          </div>
+          <div class="item">
+            <div style="color:black; background-color:transparent; ">
+              <h3>Limitation of liability</h3>
+              <p ng-bind-html="data[0].Limitation"></p>
+            </div>
+          </div>
+          <div class="item">
+            <div style="color:black; background-color:transparent;">
+              <h3>Termination and Amendments</h3>
+              {{ data[0].Termination}}
+            </div>
+          </div>
+          <div class="item">
+            <div style="color:black; background-color:transparent;">
+              <h3>Privacy Statement</h3>
+              <p ng-bind-html="data[0].Privacy"></p>
+              <!--{{ customer.Privacy}}-->
+            </div>
+          </div>
+          <a class="btn btn-primary" style="float: right" data-toggle="collapse" data-target="#demo" type="btn" id="redeemMove">Proceed</a>
+        </div>
+
+           </div>
+               
+                <form id="show5" class="row" style="margin-top:0.5%; display: none; padding-bottom:2%; margin-left:-5%;">
+                  <div class="form-group col-sm-offset-2 col-sm-8">
+                    <div class="container" style="width:100%;">
+                      <div class="row">
+                   
+                        <div class="col-sm-12">
+                          <div class="row">
+                             
+                            <div class="text-center">
+                            <h3>  {{selectedItem.eAccount}} </h3>
+                            </div>
+                          </div>
+                          <div class="input-group">
+                            <span class="input-group-addon">{{selectedItem.currency}}</span>
+                            <input type="text" value="1000" min="0" min="0.01" max="2500" value="25.67" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"
+                              class="form-control currency" id="c2" />
+                            </div>
+                              <div class="text-center">
+                             <small> From</small> 50,000  <small>to</small> 10,000
+                            </div>
+                             
+                        </div>
+                      </div>
+                    </div>
+                     </div>
+                   </form>
+
+                   
+              </div>
+            </div>
+            <div class="modal-footer" style="background: white;  width:105.3%; margin-left:-2.6%; ">
+              <a id="buying" href="summary.html" style="display: none;" type="button" class=" btn btn-default">Top up</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!--end of change area-->
+
+
+      <!--Profile card starts here-->
+      <div class="col-sm-6 ">
+        <!--<div class="big-box " style="background: url('box7.png'); border-radius: 10px;"></div>-->
+        <div class="card2 grow" style="border-radius: 15px; background: white;">
+          <div class="back hidden-xs"></div>
+          <img src="pics.png" class="img-circle hidden-xs" alt="John" style="width:23%; margin-top:-10%;  border: 5px solid white; padding: 5px;">
+          <div class="container1" style="">
+            <h2 class="fonter">{{selectedItem.accountName}}</h2>
+            <p class="title2" style="font-size: 80%;">{{selectedItem.fundName}}</p>
+            <div class="row" style="margin-top: 4%;">
+              <div class="col-sm-8 col-sm-offset-2"><i class="fa fa-bell" aria-hidden="true"></i> Funds are Redeemable online</strong>
+              </div>
+              <!--<div class="col-sm-4 "><i class="fa fa-plus-circle" aria-hidden="true"></i> {{selectedItem.accountName}} </div>-->
+            </div>
+            <div class="row " >
+              <div class="col-sm-12 "><i class="fa fa-bell" aria-hidden="true"></i> Redeemable funds without penalty are <strong>
+                
+                
+         <!-- edit Redeemable funds         -->
+                
+          <span ng-hide="editorEnabled" style="width: 50%;">
+     
+      <a href="#" style="text-decoration:none; color:black;" ng-click="enableEditor()"> {{title}} <i class="fa fa-pencil" style="opacity: 0.5" aria-hidden="true"></i> <text style="opacity: 0.5"> edit</text></a>
+    </span>
+    <span ng-show="editorEnabled" >
+      <input style="width: 55%; margin-left:25%; padding-left:20%;" class="form-control" ng-model="editableTitle" ng-show="editorEnabled">
+      <a href="#" ng-click="save()">Save</a>
+      or
+      <a href="#" ng-click="disableEditor()">cancel</a>.
+    </span>
+              
+              <!-- edit end reddemable funds -->
+              
+              </strong>                </div>
+              <!--<div class="col-sm-4 "><i class="fa fa-plus-circle" aria-hidden="true"></i> {{selectedItem.accountName}} </div>-->
+            </div>
+            <div class="row" style="margin-top: 3%; border-top: 1px solid lightgray; ">
+              <div class="col-sm-4 col-xs-6 col-sm-offset-2">
+                <div style="font-size: 1.2em; margin-top:5%; "> <strong> Currency </strong></div>
+                <p style="font-size: 1.2em; "> {{selectedItem.currency}}</p>
+              </div>
+              <div class="col-sm-4 col-xs-6 " style="border-left:1px solid lightgray">
+                <div style="font-size: 1.2em; margin-top:5%;  "> <strong> Balance </strong></div>
+                <p style="font-size: 1.2em;    ">{{selectedItem.balance |number:2}}</p>
+              </div>
+            </div>
+            <!--<div style="margin: 24px 0;">
+              <a class="a" href="#"><i class="fa fa-dribbble"></i></a>
+              <a class="a" href="#"><i class="fa fa-twitter"></i></a>
+              <a class="a" href="#"><i class="fa fa-linkedin"></i></a>
+              <a class="a" href="#"><i class="fa fa-facebook"></i></a>
+            </div>-->
+            <div class="button-div ">
+              <!--<button style="" class="button">C-343039384</button>-->
+              <p style="position: absolute; left:7%; top: 20%; color: white;"> <i class="fa fa-stack-overflow" aria-hidden="true"></i></p>
+              <p style="position: absolute; left:87%; top: 20%; color: white;"> <i class="fa fa-arrow-down fa-2x" aria-hidden="true"></i></p>
+              <select class="button " ng-model="selectedItem" style=" " ng-options="item.eAccount for item in item">
+              
+             </select>
+              <p style="margin-top:-4%; margin-left:-1%; color: white;">switch account
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--profile card ends here-->
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-6 col-xs-6">
+            <div class="mini-box">
+              <div>
+                <a href="redeem3.html">
+                  <img src="box6.png" class="round" alt="Lights" style="width:100%">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <div class="mini-box ">
+              <div>
+                <a href="investment.html"> <img src="box5.png" class="round" alt="Lights" style="width:100%"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <div class="mini-box ">
+              <div class="carousel slide " data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <!--<div class="item " >
+            <h3 class="tilecaption" >Save more & get more!!!</h3>
+          </div>-->
+                  <div class="item active">
+                    <img src="box4.png" class="img-responsive" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <div class="mini-box">
+              <div class="carousel slide " data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" style="background: lightgrey; border-radius: 10px;">
+                  <!--<div class="item " >
+            <h3 class="tilecaption" >Save more & get more!!!</h3>
+          </div>-->
+
+
+
+<!--change here for 30 days perfomance-->
+
+                  <div class="item active "  data-toggle="modal" data-target="#modChart" data-source="70,13,20,90,44,12,30,30,30,10,5,0" data-target-source="34">
+                    <img src="box10.png" class="img-responsive"  />
+                  </div>
+                  <div class="item " data-toggle="modal" data-target="#modChart" data-source="70,13,20,90,44,12,30,30,30,10,5,0" data-target-source="34">
+                    <img src="box10.png" class="img-responsive" />
+                  </div>
+
+<!--change here for 30 days perfomance-->
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <div class="mini-box">
+              <div class="carousel slide  vertical" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" style="background: #1E96F2; border-radius: 10px;">
+                  <!--<div class="item " >
+            <h3 class="tilecaption" >Save more & get more!!!</h3>
+          </div>-->
+                  <div class="item">
+                    <a href="#myModal" role="button" data-toggle="modal"> <img src="box9.png" class="img-responsive" /></a>
+                  </div>
+                  <div class="item active">
+                    <a href="#myModal" role="button" data-toggle="modal">
+                      <a href="#myModal" role="button" data-toggle="modal"> <img src="box9.png" class="img-responsive" /></a>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <div class="mini-box">
+              <div class="round">
+                <div class="carousel slide " data-ride="carousel">
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+                    <!--<div class="item " >
+            <h3 class="tilecaption" >Save more & get more!!!</h3>
+          </div>-->
+                    <div class="item active" id="Buy">
+                      <img src="box8.png" class="img-responsive" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="show" style="color: white; ">
+    <div w3-include-html="buymore.html"></div>
+  </div>
+  <!--My investment-->
+  <div id="show2" style="color: white; display:none;">
+    <!--<div w3-include-html="buy.html"></div>-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div style="margin-top:5%;">
+            <div>
+              <input class="search" type="text" placeholder="Search" ng-model="userSearch">
+            </div>
+          </div>
+          <div ng-controller='CustomerController2' style="margin-top:5%;">
+            <div>
+              <div>
+                <div ng-repeat="(key, value) in item| filter:userSearch | groupBy: 'fundName' ">
+                  {{ key }}
+                  <table class="table ">
+                    <thead style="background: white; color: black; border: none; ">
+                      <tr>
+                        <th>
+                          Name</th>
+                        <th> balance</th>
+                        <th> Fund type</th>
+                        <th> Account</th>
+                        <th> Currency</th>
+                        <th> </th>
+                        <th> </th>
+                        <th> </th>
+                      </tr>
+                    </thead>
+                    <tbody ng-repeat="user in value">
+                      <tr>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black; line-height: 70px;">{{user.accountName}}</td>
+                        <td ng-if="$even" style="background-color:#2EA6DB; line-height: 70px; box-shadow: 20px blue;">{{user.accountName}}</td>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black; line-height: 70px;">{{user.balance}}</td>
+                        <td ng-if="$even" style="background-color:#2EA6DB; line-height: 70px; ">{{user.balance}}</td>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black; line-height: 70px;">{{user.fundName.replace('STANBIC IBTC ', '')}}</td>
+                        <td ng-if="$even" style="background-color:#2EA6DB;  line-height: 70px;">{{user.fundName.replace('STANBIC IBTC ', '')}}</td>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black; line-height: 70px;">{{user.eAccount}}</td>
+                        <td ng-if="$even" style="background-color:#2EA6DB;  line-height: 70px;">{{user.eAccount}}</td>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black; line-height: 70px; ">{{user.currency}}</td>
+                        <td ng-if="$even" style="background-color:#2EA6DB;  line-height: 70px;">{{user.currency}}</td>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black;"> <button class="btn btn-primary button1 clickable" ng-click="edit(item)">Topup</button></td>
+                        <td> <button class="btn btn-default button1 clickable" href ng-click="edit(item)">Topup</button></td>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black;"> <button class="btn btn-primary button1 clickable" ng-click="edit(item)">View Transactions</button></td>
+                        <td ng-if="$even" style="background-color:#2EA6DB; "> <button class="btn btn-default button1 clickable" href ng-click="edit(item)">View Transactions</button></td>
+                        <td ng-if="$odd" style="background-color:#f1f1f1; color: black;"> <button class="btn btn-primary button1 clickable" ng-click="edit(item)">Request statement</button></td>
+                        <td ng-if="$even" style="background-color:#2EA6DB; "> <button class="btn btn-default button1 clickable" href ng-click="edit(item)">Request statement</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    w3.includeHTML();
+  </script>
+  <script>
+    $(document).ready(
+      function () {
+        $("#investments").click(function () {
+          $("#show2").fadeToggle();
+          $("#main").fadeToggle();
+        });
+
+        $("#shower").click(function () {
+          $("#show").fadeToggle();
+          $("#show2").fadeToggle();
+        });
+
+        $("#Buy").click(function () {
+          $("#show").fadeToggle();
+          $("#main").fadeToggle();
+        });
+
+        // Change area for topup
+
+          $("#redeemMove").click(function () {
+          $("#show5").fadeToggle();
+          $("#buying").fadeToggle();
+           $("#disclaimer").slideToggle('');
+             $("#header-modal").slideToggle('');
+               $("#header-modal2").slideToggle('');
+           
+        });
+
+        //   $("#show").click(function() {
+        //     $("#show").fadeToggle();
+        //      $("#main").fadeToggle();
+        // });
+      });
+
+    $(document).ready(function () {
+      $('#list').click(function (event) {
+        event.preventDefault();
+        $('#products .item').addClass('list-group-item');
+      });
+      $('#grid').click(function (event) {
+        event.preventDefault();
+        $('#products .item').removeClass('list-group-item');
+        $('#products .item').addClass('grid-group-item');
+      });
+      $('#list1').click(function (event) {
+        event.preventDefault();
+        $('#products .item').addClass('list-group-item');
+      });
+      $('#grid1').click(function (event) {
+        event.preventDefault();
+        $('#products .item').removeClass('list-group-item');
+        $('#products .item').addClass('grid-group-item');
+      });
+
+      if ($(window).width() < 430) {
+        $('#products .item').addClass('list-group-item');
+        $('#wells').hide();
+        $('#well').hide();
+      } else {
+        $('#products .item').removeClass('list-group-item');
+        $('#products .item').addClass('grid-group-item');
+      }
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.7/angular-filter.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.4/angular-sanitize.min.js"></script>
+  <script src="js/index3.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+  <!--add this ones-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js'></script>
+  <script src='https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js'></script>
+
+
+<!--script for 30 days Performance-->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+            <script src="chart.js"></script>
+<!-- 0-/-->
+            
+</body>
+
+</html>

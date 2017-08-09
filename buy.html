@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <!--<script data-require="angular.js@1.1.5" data-semver="1.1.5" src="http://code.angularjs.org/1.1.5/angular.min.js"></script>-->
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+
+   <div ng-controller="MyCtrl">
+  <select ng-options="size as size.name for size in sizes   " ng-model="item"  ng-change="update() " ng-init="item = sizes[0]"  ></select>
+ {{item.code}} {{item.name}}
+</div>
+  <script>
+  
+  var myApp = angular.module('myApp',[]);
+
+//myApp.directive('myDirective', function() {});
+//myApp.factory('myService', function() {});
+
+function MyCtrl($scope) {
+  $scope.sizes = [ {code: 1, name: 'n1'}, {code: 2, name: 'n2'}];
+ 
+
+
+}
+  </script>
+
+
+
+
+</body>
+
+</html>

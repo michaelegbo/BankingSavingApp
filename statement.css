@@ -1,0 +1,101 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.even {
+  /*background: rgba(164,205,244,1);
+background: -moz-linear-gradient(left, rgba(164,205,244,1) 0%, rgba(109,169,238,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(164,205,244,1)), color-stop(100%, rgba(109,169,238,1)));
+background: -webkit-linear-gradient(left, rgba(164,205,244,1) 0%, rgba(109,169,238,1) 100%);
+background: -o-linear-gradient(left, rgba(164,205,244,1) 0%, rgba(109,169,238,1) 100%);
+background: -ms-linear-gradient(left, rgba(164,205,244,1) 0%, rgba(109,169,238,1) 100%);
+background: linear-gradient(to right, rgba(164,205,244,1) 0%, rgba(109,169,238,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4cdf4', endColorstr='#6da9ee', GradientType=1 );*/
+  border: none;
+}
+
+.odd {
+  border: none;
+}
+
+td {
+  border: none;
+}
+
+.card-1 {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.table {
+  margin-top: 10%;
+}
+
+label:after {
+  content: '';
+  font: 10px "Consolas", monospace;
+  color: white;
+  background: transparent;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 0px;
+  top: 0px;
+  position: relative;
+  pointer-events: none;
+}
+
+select {
+  padding: 0px;
+  margin: 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  /*-webkit-box-shadow: 3px 3px 3px black, 0 0px black inset;
+  -moz-box-shadow: 3px 3px 3px black, 0 0px black inset;
+  box-shadow: 3px 3px 3px black, 0 0px black inset;*/
+  background: #09384a;
+  color: black;
+  border: none;
+  height: 150px;
+  outline: none;
+  display: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/*#latest-lnd new css */
+.hover-card1 {
+  height: 300px;
+  width: 95%;
+  border-radius: 7px;
+  background: white;
+  position: absolute;
+  margin-left: -1%;
+  margin-top: -2%;
+  z-index: -1;
+  -webkit-box-shadow: inset -4px 6px 38px 0px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: inset -4px 6px 38px 0px rgba(0, 0, 0, 0.09);
+  box-shadow: inset -4px 6px 38px 0px rgba(0, 0, 0, 0.09);
+}
+
+.hover-card2 {
+  height: 300px;
+  width: 97%;
+  width: 97%;
+  border-radius: 7px;
+  background: white;
+  position: absolute;
+  margin-left: -1%;
+  margin-top: -1.5%;
+  z-index: -1;
+  -webkit-box-shadow: inset -4px 6px 38px 0px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: inset -4px 6px 38px 0px rgba(0, 0, 0, 0.09);
+  box-shadow: inset -4px 6px 38px 0px rgba(0, 0, 0, 0.09);
+}

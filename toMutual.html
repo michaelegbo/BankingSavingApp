@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AngularJS ui-select</title>
+  <!--
+      IE8 support, see AngularJS Internet Explorer Compatibility https://docs.angularjs.org/guide/ie
+      For Firefox 3.6, you will also need to include jQuery and ECMAScript 5 shim
+    -->
+  <!--[if lt IE 9]>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+      <script>
+        document.createElement('ui-select');
+        document.createElement('ui-select-match');
+        document.createElement('ui-select-choices');
+      </script>
+    <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.7/angular-filter.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!-- ui-select files -->
+  <script src="./select.js"></script>
+  <link rel="stylesheet" href="./select.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+  <script src="./script1.js"></script>
+  <!--ui select files-->
+  <!-- themes -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.bootstrap2.css"> -->
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.bootstrap3.css">-->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    ul li {
+      padding-top: 1%;
+    }
+    
+    .form-control:focus {
+      border-color: #cccccc;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: none;
+      outline: 0px !important;
+    }
+    
+    .form-control:hover,
+    .form-control:active {
+      border-color: #cccccc;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border: none;
+      outline: 0px !important;
+      background: none;
+      background-color: none;
+    }
+    
+    textarea:hover,
+    input:hover,
+    textarea:active,
+    input:active,
+    textarea:focus,
+    input:focus,
+    button:focus,
+    button:active,
+    button:hover,
+    label:focus,
+    .btn:active,
+    .btn.active {
+      -webkit-appearance: none;
+    }
+    
+    input {
+      -webkit-appearance: none;
+      display: block;
+      margin: 10px;
+      width: 24px;
+      height: 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      vertical-align: middle;
+      box-shadow: hsla(0, 0%, 100%, .15) 0 1px 1px, inset hsla(0, 0%, 0%, .5) 0 0 0 1px;
+      background-color: hsla(0, 0%, 0%, .7);
+      background-image: -webkit-radial-gradient( hsla(200, 100%, 90%, 1) 0%, hsla(200, 100%, 70%, 1) 15%, hsla(200, 100%, 60%, .3) 28%, hsla(200, 100%, 30%, 0) 70%);
+      background-repeat: no-repeat;
+      -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1), -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+      outline: none;
+    }
+    
+    input:checked {
+      -webkit-transition: background-position .2s .15s cubic-bezier(0, 0, .2, 1), -webkit-transform .25s cubic-bezier(0, 0, .2, 1);
+      outline: none;
+      box-shadow: none;
+    }
+    
+    input:active {
+      -webkit-transform: scale(1.5);
+      -webkit-transition: -webkit-transform .1s cubic-bezier(0, 0, .2, 1);
+      outline: none;
+      box-shadow: none;
+      border: white 2px solid;
+    }
+    
+    input[type=radio] {
+      outline-color: transparent;
+    }
+    
+    input[type="radio"]:focus {
+      outline: none;
+    }
+    
+    input:focus {
+      outline: none;
+    }
+    
+    input,
+    input:active {
+      background-position: 0 24px;
+    }
+    
+    input:checked {
+      background-position: 0 0;
+    }
+    
+    input:checked~input,
+    input:checked~input:active {
+      background-position: 0 -24px;
+    }
+    
+    body {
+      padding: 15px;
+    }
+    
+    .select2>.select2-choice.ui-select-match {
+      /* Because of the inclusion of Bootstrap */
+      height: 29px;
+    }
+    
+    .selectize-control>.selectize-dropdown {
+      top: 36px;
+    }
+    /* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+    
+    .select-box {
+      background: #fff;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .alert-info.positioned {
+      margin-top: 1em;
+      position: relative;
+      z-index: 10000;
+      /* The select2 dropdown has a z-index of 9999 */
+    }
+
+    /* ngIf animation */
+.fade-element-in.ng-enter {
+  transition: 0.8s linear all;
+  opacity: 0;
+}
+
+.fade-element-in-init .fade-element-in.ng-enter {
+  opacity: 1;
+}
+
+.fade-element-in.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.fade-element-in.ng-leave {
+  transition: 0.3s linear all;
+  opacity: 1;
+}
+.fade-element-in.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+@media screen and (max-width:600px){
+
+.header-fonted{
+
+font-size:100%;
+
+}
+
+}
+
+@media only screen and (max-width: 800px) {
+    
+    /* Force table to not be like tables anymore */
+	#no-more-tables table, 
+	#no-more-tables thead, 
+	#no-more-tables tbody, 
+	#no-more-tables th, 
+	#no-more-tables td, 
+	#no-more-tables tr { 
+		display: block; 
+	}
+ 
+	/* Hide table headers (but not display: none;, for accessibility) */
+	#no-more-tables thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+ 
+	#no-more-tables tr { border: 1px solid #ccc; }
+ 
+	#no-more-tables td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 60%; 
+		white-space: wrap;
+		text-align:left;
+     height: 90px;
+	}
+ 
+	#no-more-tables td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 60%; 
+		padding-right: 10px; 
+		white-space: wrap;
+    word-wrap: break-word;
+     
+		text-align:left;
+		font-weight: bold;
+	}
+ 
+	/*
+	Label the data
+	*/
+	#no-more-tables td:before { 
+    
+    content: attr(data-title); 
+   
+
+    }
+}
+
+/*[data-title]::before{
+
+
+
+
+}*/
+  </style>
+</head>
+
+<body id="view2" ng-controller="mutual as ctrl">
+
+<script>
+
+
+</script>
+
+  <div class="container" style="margin-top:2%; height: 700px;">
+    <div class="panel" style="height: 850px;">
+      <div class="panel-heading border text-center" style="background: dodgerblue; color: white;">
+        <h2 class="header-fonted" style="font-weight: bolder;">Select a mutual funds account to transfer too</h2>
+      </div>
+      <div class="panel-body" style="height: 87%; overflow-y: auto;" id="2">
+
+
+  <div class="row">
+    <div class=" col-sm-12" id="no-more-tables" > 
+    <h2>Redemption information</h2>
+    <table class="table table-responsive">
+      <thead  style="background: darkblue; color: white; font-weight: 700px;">
+        <tr>
+          <th>Full Name</th>
+          <th>E-Account Name</th>
+          <th>Fund Name</th>
+           <th class="numeric">Current balance</th>
+            <th  style="word-break: break-all; ">Amount Redeemable with Penalty</th>
+            <th class="numeric">Amount Redeemable without Penalty</th>
+            <th class="numeric">Enter Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-title="Full Name">
+           MUSTAPHA TAOFEEKAT ADENIKE
+          </td>
+          <td data-title="E-Account Name">
+          C-00010834
+          </td>
+          <td data-title="Fund Name">
+          STANBIC IBTC DOLLAR FUND
+          </td>
+           <td data-title="Current balance" class="numeric">
+       123,400,000.00
+          </td>
+             <td data-title="Amount Redeemable with Penalty" class="numeric">
+       123,400,000.00
+          </td>
+             <td   data-title="Amount Redeemable without Penalty" class="numeric">
+       123,400,000.00
+          </td>
+             <td data-title="Enter Amount" class="numeric">
+  <input  ng-model="somefield" class="form-control" style=" border: .1px solid gray; margin-top: -3%; margin-left: -10%; "  success>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+
+   <form class="form-horizontal fade-element-in" ng-show="somefield.length" >
+          <fieldset>
+            <legend>Choose a source Account</legend>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">search</label>
+              <div class="col-sm-10 ">
+                <ui-select ng-model="ctrl.account.selected " theme="select2" class="form-control" title="Choose a person">
+                  <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.accountName}} <small></small>{{$select.selected.eAccount}} </ui-select-match>
+                  <ui-select-choices repeat="item in ctrl.account | filter: $select.search">
+                    <div ng-bind-html="item.accountName | highlight: $select.search"></div>
+                    <small ng-bind-html="item.eAccount | highlight: $select.search"></small>
+                  </ui-select-choices>
+                </ui-select>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+{{
+ctrl.account.selected.eAccount}}
+        <form class="fade-element-in form-horizontal" ng-if="ctrl.account.selected" >
+          <fieldset>
+            <legend>Select Fund Type to Buy</legend>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">search</label>
+              <div class="col-sm-10 ">
+                <ui-select ng-model="ctrl.person.selected" theme="select2" class="form-control" title="Choose a person">
+                  <ui-select-match placeholder="Select or search a person in the list...">{{$select.selected.fundName}}</ui-select-match>
+                  <ui-select-choices repeat="item in ctrl.people | filter: $select.search">
+                    <div ng-bind-html="item.fundName | highlight: $select.search"></div>
+                    <small ng-bind-html="item.currency | highlight: $select.search"></small>
+                  </ui-select-choices>
+                </ui-select>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+
+
+     
+
+
+        <div class="row fade-element-in"  ng-if="ctrl.person.selected" >
+          <!--{{key}}-->
+          <div class="col-sm-6 col-sm-offset-3">
+            <table class="table " ng-repeat="x in ctrl.person.selected.label">
+              <tr>
+                <th>{{x.header}}</th>
+                <th> {{x.content}}</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row fade-element-in" ng-if="ctrl.person.selected" >
+          <div class="text-center col-sm-offset-5 col-sm-3">
+            <a href="success.html" type="button" style="width: 100%;" class="btn btn-primary">I Agree</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $('#redeemMove').click(function () {
+      $('#disclaimer').slideToggle('fast');
+      $('#search').slideToggle('slow');
+      $('#table').slideToggle('slow');
+      $('#pill').slideToggle('slow');
+      $('#question').slideToggle('slow');
+
+
+    });
+
+
+    if ($(window).width() < 500) {
+      //    $(".content").width(20);
+
+
+    }
+
+
+
+    (function ($) {
+
+      /*
+       * We need to turn it into a function.
+       * To apply the changes both on document ready and when we resize the browser.
+       */
+
+      function mediaSize() {
+        /* Set the matchMedia */
+        if (window.matchMedia('(max-width: 500px)').matches) {
+          /* Changes when we reach the min-width  */
+          $('#view2').css('background', 'url("bb3.jpg")');
+
+        } else {
+          /* Reset for CSS changes – Still need a better way to do this! */
+
+          $('#view2').css('background', 'url("bb3.jpg")');
+
+
+          // $('body, strong').removeAttr('style');
+        }
+      };
+
+      /* Call the function */
+      mediaSize();
+      /* Attach the function to the resize event listener */
+      window.addEventListener('resize', mediaSize, false);
+
+    })(jQuery);
+  </script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+</body>
+
+</html>

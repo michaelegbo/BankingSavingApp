@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" ng-cloak>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" />
+  <title>AngularJS ui-select</title>
+  <!--
+      IE8 support, see AngularJS Internet Explorer Compatibility https://docs.angularjs.org/guide/ie
+      For Firefox 3.6, you will also need to include jQuery and ECMAScript 5 shim
+    -->
+  <!--[if lt IE 9]>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+      <script>
+        document.createElement('ui-select');
+        document.createElement('ui-select-match');
+        document.createElement('ui-select-choices');
+      </script>
+    <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-sanitize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.7/angular-filter.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-utils/0.1.1/angular-ui-utils.min.js'></script>
+  <!-- ui-select files -->
+  <script src="./select.js"></script>
+  <link rel="stylesheet" href="./select.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+  <script src="./script1.js"></script>
+  <!--ui select files-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="bounce.css">
+  <!-- themes -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+  <style>
+    .home {
+      color: gray;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .home:hover{
+
+        color: gray;
+      cursor: pointer;
+      text-decoration: none;
+
+  
+
+    }
+
+
+
+
+
+  </style>
+</head>
+
+<body id="view2" style="font-family: 'Lato', sans-serif;"  ng-controller="DemoCtrl as ctrl">
+  <div class="container" style=" height: 700px; margin-top:2%;">
+    <div class="panel" style="height: 110%; ">
+      <div class="panel-heading border text-center" style="background: seagreen;  color: white; ">
+        <h2 style="font-weight: bolder; font-size: 300%;">Success!</h2>
+      </div>
+      <div class="panel-body" style="height: 87%; overflow-y: auto; " id="2">
+        <div class="container" style=" margin-top: 2%; width:95%; border-top: dotted 1px lightgray; " id="pill">
+          <div class="row">
+            <div class="text-center bounceIn" style="color: mediumseagreen;">
+              <i class="fa fa-check-circle " style="font-size: 250px; " aria-hidden="true"></i>
+            </div>
+          </div>
+      
+   <div class="item">
+            <div class="row" style="color:black; background-color:transparent; font-size: 80%;">
+                 <div class="col-sm-3 " >  <strong><h4 style="font-weight: bolder;">Product Details</h4></strong> </div>
+            <div class="col-sm-3 ">  <h4>Order ID</h4> </div>
+                 <div class="col-sm-4">  <h4>Mutual Fund 924u249u24u2</h4> </div>
+            </div>
+          </div>
+
+           <div class="item">
+            <div class="row" style="color:black; background-color:transparent; font-size: 80%;">
+            <div class="col-sm-3 col-sm-offset-3">  <h4>Amount</h4> </div>
+                 <div class="col-sm-6">  <h4>NGN 650,000,000</h4> </div>
+            </div>
+          </div>
+
+           <div class="item">
+            <div class="row" style="color:black; background-color:transparent; font-size: 80%;">
+            <div class="col-sm-3 col-sm-offset-3">  <h4>Fund Name</h4> </div>
+                 <div class="col-sm-6">  <h4>Bond Fund</h4> </div>
+            </div>
+          </div>
+
+           <div class="item">
+            <div class="row" style="color:black; background-color:transparent; font-size: 80%;">
+            <div class="col-sm-3 col-sm-offset-3">  <h4>Account Name</h4> </div>
+                 <div class="col-sm-6">  <h4>Michael Egbo</h4> </div>
+            </div>
+          </div>
+
+
+          <div class="row" id="question" style="   ">
+            <div class="col-sm-10 col-sm-offset-1 " style="border-left: 7px dotted mediumseagreen; padding-top:-0.5%;  color: mediumseagreen; word-wrap: break-word; padding-top: 1.5%; height: 80px ; ">
+            <strong>Please note that the consolidated internet payment gateway is a secure platform and users of Mastercard/ Visa cards who are yet to register their cards on secure code will be required to do so before making payment on this platform</strong></div>
+            <!--<div class=" col-sm-3 " style="margin-top:3%; ">
+          
+          
+              <a type="button" href="toMutual.html" style="width: 100%; margin-top:-10%; line-height:50px;" class="btn btn-default" id="security">Proceed </a>
+              
+          
+          </div>-->
+          </div>
+          <div class="row">
+            <div class="col-sm-2 col-sm-offset-10">
+              <a class="home">
+                <i class="fa fa-home " style="font-size: 500%; " aria-hidden="true"></i> <br>
+                <text> &nbsp;&nbsp; <b>go home</b> </text>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $('#redeemMove').click(function () {
+      $('#disclaimer').slideToggle('fast');
+      $('#search').slideToggle('slow');
+      $('#table').slideToggle('slow');
+      $('#pill').slideToggle('slow');
+      $('#question').slideToggle('slow');
+
+
+    });
+
+
+    if ($(window).width() < 500) {
+      //    $(".content").width(20);
+
+
+    }
+
+
+
+    (function ($) {
+
+      /*
+       * We need to turn it into a function.
+       * To apply the changes both on document ready and when we resize the browser.
+       */
+
+      function mediaSize() {
+        /* Set the matchMedia */
+        if (window.matchMedia('(max-width: 500px)').matches) {
+          /* Changes when we reach the min-width  */
+          $('#view2').css('background', 'url("bb3.jpg")');
+
+        } else {
+          /* Reset for CSS changes – Still need a better way to do this! */
+
+          $('#view2').css('background', 'url("bb3.jpg")');
+
+
+          // $('body, strong').removeAttr('style');
+        }
+      };
+
+      /* Call the function */
+      mediaSize();
+      /* Attach the function to the resize event listener */
+      window.addEventListener('resize', mediaSize, false);
+
+    })(jQuery);
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+</body>
+
+</html>

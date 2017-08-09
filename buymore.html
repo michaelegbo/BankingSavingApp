@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .carousel-inner:hover {
+            zoom: 0;
+        }
+        
+        select.soflow,
+        select.soflow-color {
+            -webkit-appearance: button;
+            -webkit-border-radius: 2px;
+            -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            -webkit-padding-end: 20px;
+            -webkit-padding-start: 2px;
+            -webkit-user-select: none;
+            background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+            background-position: 97% center;
+            background-repeat: no-repeat;
+            border: 1px solid #AAA;
+            color: #555;
+            font-size: inherit;
+            margin: 20px;
+            overflow: hidden;
+            padding: 5px 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 300px;
+        }
+        
+        select.soflow-color {
+            color: #fff;
+            background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#779126, #779126 40%, #779126);
+            background-color: #779126;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            border-radius: 20px;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div ng-controller="CustomerController" style="margin-top:2%;">
+            <!--<div ng-repeat="customer in data">-->
+            <div class="well well-sm" id="wells">
+                <strong style="color: black;">Category Title</strong>
+                <div class="btn-group">
+                    <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+                </div>
+            </div>
+            <div id="products" class="row list-group">
+                <div class="item  col-xs-4 col-lg-4" ng-repeat="customer in data">
+                    <div class="thumbnail">
+                        <!--<img class="group list-group-image" ng-src="{{customer.img}}" alt="" />-->
+                        <div class="caption">
+                            <h4 class="group inner list-group-item-heading">
+                                <strong>   {{customer.name}}</strong></h4>
+                            <p class="group inner list-group-item-text">
+                                {{customer.description}}</p>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6 col-md-offset-6">
+                                    <a class="btn btn-primary" style="width: 100%;" ng-click="open(customer)"> Buy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<button class="btn btn-default" ng-click="open(customer)">{{ customer.name }}</button> <br />-->
+                <!--MODAL WINDOW-->
+                <script type="text/ng-template" id="myModalContent.html" class="">
+
+                
+                    <div class="modal-header" id="1">
+                        <!--<button type="button" class="close" >&times;</button>-->
+                        <button type="button" class="close" id="magic">&times;</button>
+                        <h3>Terms & Conditions</h3>
+                    </div>
+                    <div class="modal-body" style="max-height: 90%; overflow-y: auto;" id="2">
+                        <div id="myCarousel" class="carousel slide" style="max-height: 20%; overflow-y: auto; " data-ride="carousel" data-interval="5000"
+                            data-pause="false">
+                            <!-- Wrapper for slides -->
+                            <div style="max-height: 400px;">
+                                <div class="item active">
+                                    <div style="color:black; background-color:transparent; ">
+                                        <h3>Disclaimer</h3>
+                                        {{ customer.Disclaimer}}
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div style="color:black; background-color:transparent; ">
+                                        <h3>Limitation of liability</h3>
+                                        <p ng-bind-html="customer.Limitation"></p>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div style="color:black; background-color:transparent;">
+                                        <h3>Termination and Amendments</h3>
+                                        {{ customer.Termination}}
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div style="color:black; background-color:transparent;">
+                                        <h3>Privacy Statement</h3>
+                                        <p ng-bind-html="customer.Privacy"></p>
+                                        <!--{{ customer.Privacy}}-->
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="container money1 modal-content" id="hidde">
+                <div class="modal-header">
+                    <h2 class="text-center money2 "><b> <i class="fa fa-pencil" aria-hidden="true"></i> Enter Amount</b></h2>
+                </div>
+                <div class="row modal-body" style="background:white; padding-top:6%; padding-bottom:5%; border-bottom: 1px solid lightgray;">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <!--<p>The form below contains two input elements; one of type text and one of type password:</p>-->
+                        <form style="margin-top:-5%; padding-bottom:5%; margin-left:-5%;">
+                            <div class="form-group">
+                                <div class="container" style="width:100%;">
+                                    <div class="row">
+                                        <select class="soflow" ng-model="selectedItem" ng-init="selectedItem = customer.statusList[0]" style=" color:black; height:100%; margin-left:-1%; "
+                                            ng-options="status as status.eAccount for status in customer.statusList">
+                                            </select>
+                                    </div>
+                                    <div class="row">
+                                        <!--<div class="col-sm-2">
+                    NGN
+                    </div>-->
+                                        <!--<label for="usr">OTP:</label>-->
+                                        <div class="col-sm-12">
+                                            {{customer.name}}
+                                            <div class="input-group">
+                                                <span class="input-group-addon">NGN</span>
+                                                <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency"
+                                                    id="c2" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <!--<a href="metro.html"  class="btn btn-indigo" style="width: 70%; margin-top: 10%;" id="login"><b>Login</b></a>-->
+                    </form>
+                </div>
+            </div>
+
+  <div class="modal-footer" style="" >
+            <button id="butt" type="button" class="btn btn-default">Proceed</button>
+            <button id="butt2" type="button" style="padding-top:30%;  display:none; border-radius:none; width: 20%; height: 100%;"  class="btn btn-primary">Buy</button>
+          
+        </div>
+
+
+        </div>
+      
+
+          <script>
+                $(document).ready(function () {
+                    $("#butt").click(function () {
+                        $("#1").hide();
+                        $("#2").hide();
+                        $("#butt").hide();
+                        $("#butt2").show();
+                        $("#hidde").show();
+                    });
+
+                    $("#magic").click(function () {
+
+
+                        location.reload(true);
+                    });
+                });
+
+
+                // webshims.setOptions('forms-ext', {
+                //     replaceUI: 'auto',
+                //     types: 'number'
+                // });
+                // webshims.polyfill('forms forms-ext');
+            </script>
+        </script>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

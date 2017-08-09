@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gift Card UI</title>
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="gift.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/css/mdb.min.css" />
+    <!--<link rel="stylesheet" type="text/css" href="http://mdbootstrap.com/mdbcdn/mdb.min.css">-->
+    <style>
+     #matrix2 {
+    display: none;
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    
+
+     #matrix {
+    display: none;
+}
+
+    #matrix2 {
+    display: block;
+}
+}
+
+
+_:-ms-lang(x), _:-webkit-full-screen,  #matrix {
+    display: none;
+}
+
+_:-ms-lang(x), _:-webkit-full-screen,  #matrix2 {
+    display: block;
+}
+    </style>
+<!--[if IE]>
+<style>
+#matrix { display:none; }
+   #matrix2 {
+    display: block;
+}
+</style>
+<![endif]-->
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading text-center">
+        <h2>Gift Voucher</h2>
+      </div>
+      <div class="panel-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-5">
+              <h2>Beneficiary</h2>
+              <h2></h2>
+              <div class="md-form">
+                <p>Select a Fund:</p>
+                <select ng-model="selectedCar" class="form-control" style="height: 100%;  border: none; border-bottom: 0.5px solid black; box-shadow: none;"
+                  ng-init="selectedCar = cars[0].model">
+                  <option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+                  </select>
+              </div>
+              <div class="md-form">
+                <p>Phone Code:</p>
+                <select ng-model="selectedCar2" class="form-control" style="height: 100%; color: blue;  border: none; border-bottom: 0.5px solid black; box-shadow: none;"
+                  ng-init="selectedCar2 = cars[0].code">
+                  <option ng-repeat="x in cars" value="{{x.code}}">{{x.code}}</option>
+                  </select>
+              </div>
+              <div class="md-form">
+                <label for="Amount">Telephone Number</label>
+                <input type="number" style="" class="form-control" id="Amount">
+              </div>
+              <div class="md-form">
+                <label for="Amount">Email</label>
+                <input type="number" style="" class="form-control" id="tel">
+              </div>
+              <div class="md-form">
+                <label for="Amount">Full Name</label>
+                <input type="number" style="" class="form-control" id="Amount">
+              </div>
+              <div class="md-form display">
+                <label for="Amount">Message to Beneficiary</label>
+                <input type="number" style="" class="form-control" id="Amount">
+              </div>
+              <div class="md-form text-Amount2">
+                <label for="Amount">Type Amount</label>
+                <input type="number" style="" class="form-control" id="Amount">
+              </div>
+              <!--<div class="md-form">
+                <label for="Amount">Type Amount</label>
+                <input type="number" style="width: 60%;" class="form-control" id="Amount">
+              </div>-->
+            </div>
+            <div class="col-sm-6 col-sm-offset-1">
+              <table class="table table-striped table-inverse" style="margin-top:10%;">
+                <thead>
+                  <tr>
+                    <th style="background: white;"></th>
+                    <th class="bg-primary" style="border-bottom: #0275D8 1px solid;"> Product detail</th>
+                  </tr>
+                </thead>
+                <tr ng-repeat="x in details">
+                  <td style="background: white; color: black; width: 40%; border-bottom: 0.5px solid lightgray;">{{ x.id }}</td>
+                  <td class="bg-primary" style="border-bottom: #0275D8 1px solid;">{{ x.details}}</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <div class="route" id="buy"></div>
+
+
+        <section class="giftcard" id="matrix">
+          <footer class="giftcard-footer">
+            <div class="giftcard-text ">
+              <div class="md-form text-Amount">
+                <label for="Amount">Type Amount</label>
+                <input type="number" style="width: 60%;" class="form-control" id="Amount">
+              </div>
+            </div>
+            <!--Button for web -->
+            <div class="ribbon">
+              <div class="giftwrap">
+                <a href="#buy" id="buy" class="button">Buy</a>
+              </div>
+              <div class="bow">
+                <i class="fa fa-bookmark"></i>
+                <i class="fa fa-bookmark"></i>
+              </div>
+            </div>
+            <!--end of button for web-->
+            <div class="giftcard-info" style="display: none; background: none;">
+              <div class="md-form display2">
+                <label for="Message">Enter a gift message</label>
+                <input type="number" style="" class="form-control" id="Message">
+              </div>
+              <div>
+                <a href="#" class="button secondary">Checkout</a>
+              </div>
+            </div>
+          </footer>
+          <!--Button For mobile device add same action here-->
+          <button href="#" style="width: 100%;" id="buy2" class="btn btn-default">Buy</button>
+        </section>
+
+
+ 
+        <section class="giftcard" id="matrix2">
+          <footer class="giftcard-footer">
+            <div class="giftcard-text ">
+              <div class="row">
+                <div class="col-sm-4 md-form text-Amount">
+                <label for="Amount" style="margin-left: 5%;">Type Amount</label>
+                <input type="number"  class="form-control" id="Amount">
+              </div>
+
+               <div class="col-sm-4 md-form ">
+                <label for="Message" style="margin-left: 5%;">Enter a gift message</label>
+                <input type="number"  class="form-control" id="Message">
+              </div>
+
+               <div class="col-sm-2 col-sm-offset-2">
+                <a href="#" class="button secondary">Checkout</a>
+              </div>
+            </div>
+              </div>
+
+              
+            <!--Button for web -->
+            <!--<div class="ribbon">
+              <div class="giftwrap">
+                <a href="#buy" id="buy" class="button">Buy</a>
+              </div>
+              <div class="bow">
+                <i class="fa fa-bookmark"></i>
+                <i class="fa fa-bookmark"></i>
+              </div>
+            </div>-->
+            <!--end of button for web-->
+            <!--<div class="giftcard-info" style=" background: none;">
+             
+              <div>
+                <a href="#" class="button secondary">Checkout</a>
+              </div>
+            </div>-->
+          </footer>
+          <!--Button For mobile device add same action here-->
+          <button href="#" style="width: 100%;" id="buy2" class="btn btn-default">Buy</button>
+        </section>
+
+
+      </div>
+    </div>
+  </div>
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>-->
+
+
+  
+  <!--<div ng-repeat="x in myWelcome" style="color: blue;">
+
+{{x.location}}
+
+</div>-->
+  <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+      crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+      <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.2/js/mdb.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $(".button").click(function () {
+            $(".giftcard-info").toggle(1000);
+          });
+        });
+
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $http) {
+          $scope.cars = [{
+              model: "Ford Mustang",
+              code: "+234"
+            },
+            {
+              model: "Fiat 500",
+              code: "+44"
+            },
+            {
+              model: "Volvo XC90",
+              code: "+199"
+            }
+          ];
+          $scope.details = [{
+              id: "Asset Allocation",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Fund Name",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Handling Charges",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Investment Objective",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Minimum Investment",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Nominal Value",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Redemption",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Risk",
+              details: "100% Money Market Instruments"
+            },
+            {
+              id: "Subsequent Investment",
+              details: "100% Money Market Instruments"
+            }
+
+
+          ];
+
+
+          $http({
+            method: "GET",
+            url: "https://api.fieldbook.com/v1/596fa9d43b10de0300122281/inventories"
+          }).then(function mySuccess(response) {
+            $scope.myWelcome = response.data;
+          }, function myError(response) {
+            $scope.myWelcome = response.statusText;
+          });
+
+
+        });
+      </script>
+</body>
+
+</html>
